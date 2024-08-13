@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import React from 'react'
 
 const Information = () => {
@@ -11,7 +12,7 @@ const Information = () => {
                 <p>Limbiks can quickly generate flashcards from PDFs, PowerPoint presentations, documents, and even pictures of notes or text! Simply upload your file, and a complete set of flashcards will be ready in seconds. Additionally, Limbiks can create flashcards from YouTube videos and Wikipedia articles.</p>
             </div>
             <div className='w-full lg:w-1/2'>
-                <img src='/image1.svg' className='w-full' alt='Limbiks'/>
+                <Image src='/image1.svg'  width={100} height={100} className='w-full' alt='Limbiks'/>
             </div>
         </div>
         {/* 222222222222222222 */}
@@ -21,7 +22,7 @@ const Information = () => {
                 <p>Limbiks provides easy to use study tools so you can start studying your flashcards immediately. Flashcards can also be downloaded and imported into Anki, Quizlet, Tinycards, Cram, and many other study tools!</p>
             </div>
             <div className='w-full lg:w-1/2'>
-                <img src='/image2.svg' className='w-full' alt='Limbiks'/>
+                <Image src='/image2.svg' width={100} height={100} className='w-full' alt='Limbiks'/>
             </div>
         </div>
         {/* 33333333333333333333333 */}
@@ -31,7 +32,7 @@ const Information = () => {
                 <p>Limbiks supports 21 languages including Catalan, Chinese, Croatian, Danish, Dutch, English, Finnish, French, German, Greek, Italian, Japanese, Korean, Lithuanian, Macedonian, Polish, Portuguese, Romanian, Russian, Spanish, Swedish, and Ukranian.</p>
             </div>
             <div className='w-full lg:w-1/2'>
-                <img src='/image3.svg' className='w-full' alt='Limbiks'/>
+                <Image src='/image3.svg' width={100} height={100} className='w-full' alt='Limbiks'/>
             </div>
         </div>
     </section>
