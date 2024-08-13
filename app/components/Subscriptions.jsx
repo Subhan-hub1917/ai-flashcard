@@ -17,7 +17,7 @@ const Subscriptions = () => {
                     }
                 </ul>
             </div>
-            <button className='bg-rose-600 text-center w-full py-3 rounded-xl font-medium'>Buy Subscription</button>
+            <button className='hover:scale-105 bg-rose-600 text-center w-full py-3 rounded-xl font-medium'>Buy Subscription</button>
         </div>
     </section>
   )

@@ -16,8 +16,8 @@ const Navbar = () => {
             }
         </div>
         <div className='hidden lg:flex items-center justify-center space-x-3'>
-            <button>Login</button>
-            <button className='bg-rose-600 px-10 py-5 rounded-full'>Signup</button>
+            <button className='hover:scale-105'>Login</button>
+            <button className='hover:scale-105 bg-rose-600 px-10 py-5 rounded-full'>Signup</button>
 
         </div>
         <div className='block lg:hidden'>
