@@ -1,15 +1,24 @@
 'use client';
 import { navItems } from '@/Constants'
 import { ThemeContext } from '@/Context'
-import { SignInButton, SignUpButton, UserButton } from '@clerk/nextjs'
+import { SignInButton, SignUpButton, UserButton, useUser } from '@clerk/nextjs'
 
 import React, { useContext, useEffect, useState } from 'react'
 
 const Navbar = () => {
     const [mobileNav,setMobileNav]=useState(false)
     const {authenticated, setAuthenticated}=useContext(ThemeContext);
-    // useEffect(()=>{
-    // },[authenticated])
+    const {isLoaded,user}=useUser()
+    
+    const email = user?.primaryEmailAddress?.emailAddress
+    
+    useEffect(() => {
+        if (user) {
+            setAuthenticated(true);
+        } else {
+            setAuthenticated(false);
+        }
+    }, [user, setAuthenticated]);
   return (
     <nav className='relative'>   
         <div className='flex items-center overflow-hidden justify-between space-x-5 lg:space-x-0 py-5 px-5 lg:px-20 text-lg font-medium text-white bg-inherit'>

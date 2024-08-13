@@ -18,8 +18,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-      <ClerkProvider publishableKey={process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}>
-
+      <ClerkProvider publishableKey='pk_test_c291bmQtYWxpZW4tMi5jbGVyay5hY2NvdW50cy5kZXYk'>
         <html lang="en" className="bg-indigo-950 relative">
           <head>
           <Script async src="https://www.googletagmanager.com/gtag/js?id=G-LKHG487GJR"></Script>

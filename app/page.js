@@ -10,12 +10,12 @@ import { useUser } from "@clerk/nextjs";
 export default function Home() {
   const {authenticated, setAuthenticated}=useContext(ThemeContext);
   const {isLoaded,user}=useUser()
-  const email = user?.primaryEmailAddress.emailAddress
+  const email = user?.primaryEmailAddress?.emailAddress
   useEffect(()=>{
-    if(isLoaded){
+    if(email){
       setAuthenticated(true)
     }
-  },[email,user,isLoaded])
+  },[email,setAuthenticated,authenticated])
   return (
     <main className="text-white max-w-full overflow-x-hidden">
         <Hero/>
