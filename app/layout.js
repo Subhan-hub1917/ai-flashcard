@@ -1,4 +1,3 @@
-// import { Inter } from "next/font/google";
 import "./globals.css";
 import 'bootstrap-icons/font/bootstrap-icons.css'
 import Navbar from "./components/Navbar";
@@ -7,9 +6,6 @@ import { cn } from "@/lib/utils"
 import { ClerkProvider } from "@clerk/nextjs";
 import ThemeProvider from "@/Context";
 import Script from "next/script";
-// import ThemeProvider from "@/Context";
-
-// const inter = Inter({ subsets: ["latin"] });
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -27,14 +23,11 @@ export default function RootLayout({ children }) {
         <html lang="en" className="bg-indigo-950 relative">
           <head>
           <Script async src="https://www.googletagmanager.com/gtag/js?id=G-LKHG487GJR"></Script>
-          <Script>
+          <Script id="google-analytics">
             {`
               window.dataLayer = window.dataLayer || [];
-              function gtag(){
-                dataLayer.push(arguments)
-              }
+              function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
-
               gtag('config', 'G-LKHG487GJR');
             `}
           </Script>
