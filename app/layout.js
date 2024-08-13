@@ -6,6 +6,7 @@ import { Inter as FontSans } from "next/font/google"
 import { cn } from "@/lib/utils"
 import { ClerkProvider } from "@clerk/nextjs";
 import ThemeProvider from "@/Context";
+import Script from "next/script";
 // import ThemeProvider from "@/Context";
 
 // const inter = Inter({ subsets: ["latin"] });
@@ -23,7 +24,21 @@ export default function RootLayout({ children }) {
   return (
       <ClerkProvider>
 
-        <html lang="en" className="bg-indigo-950">
+        <html lang="en" className="bg-indigo-950 relative">
+          <head>
+          <Script async src="https://www.googletagmanager.com/gtag/js?id=G-LKHG487GJR"></Script>
+          <Script>
+            {`
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){
+                dataLayer.push(arguments)
+              }
+              gtag('js', new Date());
+
+              gtag('config', 'G-LKHG487GJR');
+            `}
+          </Script>
+          </head>
           <body  className={cn("min-h-screen bg-background font-sans antialiased",)}>
             <ThemeProvider>
               <Navbar/>

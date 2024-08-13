@@ -1,5 +1,5 @@
 export const navItems=[
-    'Generators','Features','Examples','Company'
+    'Home','Generators','Features',
 ]
 export const freeSubscription=[
     '10 Uploads / month',
