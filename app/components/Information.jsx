@@ -2,7 +2,7 @@ import React from 'react'
 
 const Information = () => {
   return (
-    <section className='bg-white text-black text-center w-full py-20 px-10 lg:px-20 space-y-10 z-10'>
+    <section className='bg-white text-black text-center w-full py-20 px-5 lg:px-20 space-y-10 z-10'>
         <h1 className='font-bold text-5xl z-10'>Stop wasting time making flashcards.</h1>
         {/* 11111111111111 */}
         <div className='font-normal text-base block lg:flex items-center justify-between space-x-7 space-y-10 lg:space-y-0 px-10'>
