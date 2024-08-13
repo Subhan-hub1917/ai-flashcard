@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React from 'react'
 
 const Hero = () => {
@@ -10,7 +11,9 @@ const Hero = () => {
         <div className='flex flex-col items-center justify-center text-white text-center font-normal w-full lg:w-1/2  space-y-7 '>
             <h1 className='text-2xl font-medium'>Preview your generated Flashcard</h1>
             <div className='space-y-3'>
-                <button className='hover:scale-105 font-bold text-sm lg:text-lg px-14 py-2 rounded-xl bg-rose-600'><i className='bi bi-cloud me-2'></i>Click here to upload Data</button>
+                <Link href='/GenerateFlashCard'>
+                    <button className='hover:scale-105 font-bold text-sm lg:text-lg px-14 py-2 rounded-xl bg-rose-600'><i className='bi bi-cloud me-2'></i>Click here to upload Data</button>
+                </Link>
                 <h1 className='text-sm font-extralight'>Support Data:Text</h1>
             </div>
             <div className='space-y-3'>

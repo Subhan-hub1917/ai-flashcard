@@ -1,7 +1,12 @@
+'use client';
 import { navItems } from '@/Constants'
-import React from 'react'
+import { ThemeContext } from '@/Context'
+import { SignInButton, SignUpButton, UserButton } from '@clerk/nextjs'
+
+import React, { useContext } from 'react'
 
 const Navbar = () => {
+    const {authenticated, setAuthenticated}=useContext(ThemeContext);
   return (
     <nav className='flex items-center justify-between space-x-5 lg:space-x-0 py-5 px-5 lg:px-20 text-lg font-medium text-white bg-inherit'>   
         <div>
@@ -16,9 +21,23 @@ const Navbar = () => {
             }
         </div>
         <div className='hidden lg:flex items-center justify-center space-x-3'>
-            <button className='hover:scale-105'>Login</button>
-            <button className='hover:scale-105 bg-rose-600 px-10 py-5 rounded-full'>Signup</button>
-
+          {
+            authenticated === true
+            ?
+                (<UserButton/>)
+            :
+            (
+                <>
+                    <SignUpButton mode='modal' forceRedirectUrl='/'>
+                        <button className='hover:scale-105'>Login</button>
+                    </SignUpButton>
+                    
+                    <SignInButton mode='modal' forceRedirectUrl='/'>
+                        <button className='hover:scale-105 bg-rose-600 px-10 py-5 rounded-full'>Signup</button>
+                    </SignInButton>
+                </>
+            )
+          }
         </div>
         <div className='block lg:hidden'>
             <i className=' text-2xl bi bi-list '></i>
