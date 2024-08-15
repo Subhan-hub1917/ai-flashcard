@@ -2,10 +2,11 @@
 import React, { useContext, useState } from 'react'
 import Flashcard from '../components/Flashcard'
 import PdfDropzone from '../components/PdfDropzone'
-import { ThemeContext } from '@/Context'
+// import {  } from '@/Context'
 import { Circles } from 'react-loader-spinner'
+import { ThemeContext } from '@/Context'
 
-const page = () => {
+const Page = () => {
   const {pdfData,setPdfData}=useContext(ThemeContext);
   const [cardData,setCardData]=useState(null) 
   const [loading,setLoading]=useState(false) 
@@ -99,7 +100,7 @@ I don't want any string line or text.You should return in the following JSON for
           <section className='flex  flex-wrap items-center justify-center text-center'>
             {
               cardData.map((data)=>(
-                <Flashcard data={data}/>
+                <Flashcard data={data} key={data.front} />
               ))
             }
           </section>
@@ -112,4 +113,4 @@ I don't want any string line or text.You should return in the following JSON for
   )
 }
 
-export default page
+export default Page

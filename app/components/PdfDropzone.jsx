@@ -34,7 +34,7 @@ function PdfDropzone() {
 
             reader.readAsArrayBuffer(file);
         });
-    }, []);
+    }, [setPdfData]);
 
     const { getRootProps, getInputProps, isDragActive } = useDropzone({
         onDrop,

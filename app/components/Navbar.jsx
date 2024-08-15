@@ -1,10 +1,10 @@
 'use client';
+import React, {  useContext, useEffect, useState } from 'react'
 import { navItems } from '@/Constants'
 import { ThemeContext } from '@/Context'
 import { SignInButton, SignUpButton, UserButton, useUser } from '@clerk/nextjs'
 import Link from 'next/link';
 
-import React, { useContext, useEffect, useState } from 'react'
 
 const Navbar = () => {
     const [mobileNav,setMobileNav]=useState(false)
@@ -29,7 +29,7 @@ const Navbar = () => {
             <div className='hidden lg:flex items-center justify-center space-x-3'>
                 {
                     navItems.map((nav)=>(
-                        <Link href={nav.link}><button className='' key={nav}>{nav.name}</button></Link>
+                        <Link href={nav.link} key={nav.name}><button className=''>{nav.name}</button></Link>
                     ))
                 }
             </div>
