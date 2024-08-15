@@ -2,7 +2,6 @@
 import React, { useContext, useState } from 'react'
 import Flashcard from '../components/Flashcard'
 import PdfDropzone from '../components/PdfDropzone'
-// import {  } from '@/Context'
 import { Circles } from 'react-loader-spinner'
 import { ThemeContext } from '@/Context'
 
@@ -75,11 +74,11 @@ I don't want any string line or text.You should return in the following JSON for
   return (
     <section className='text-center text-3xl text-white'>
       <h1 className='text-5xl font-black'>Your Flash Cards</h1>
-      <PdfDropzone/>
+      {/* <PdfDropzone/> */}
       {
         pdfData &&
         <div className='inline-block'>
-          <button disabled={loading} onClick={handleFlashCardGeneration} className='flex items-center font-semibold text-base bg-rose-600 px-5 py-2 rounded-xl hover:scale-105'>
+          <button disabled={loading} onClick={handleFlashCardGeneration} className='flex items-center justify-center font-semibold text-base bg-rose-600 px-5 py-2 rounded-xl hover:scale-105'>
             <div className={`inline-block ${loading==true ?'me-2':'hidden me-2'}`}>
               <Circles
                 height="20"
