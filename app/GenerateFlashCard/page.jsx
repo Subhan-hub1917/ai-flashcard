@@ -4,6 +4,7 @@ import Flashcard from '../components/Flashcard'
 import PdfDropzone from '../components/PdfDropzone'
 import { Circles } from 'react-loader-spinner'
 import { ThemeContext } from '@/Context'
+import PdfUploadForm from '../components/PdfUploadForm'
 
 const Page = () => {
   const {pdfData,setPdfData}=useContext(ThemeContext);
@@ -63,20 +64,23 @@ I don not want any string line or text.You should return in the following JSON f
     catch (error) {
       setLoading(false);
       console.log(error.message)
-      // alert(`Error fetching Quiz: ${error.message}`);
+      alert(`Error fetching Quiz: ${error.message}`);
     }
   };
 
   return (
     <section className='text-center text-3xl text-white'>
       <h1 className='text-5xl font-black'>Your Flash Cards</h1>
-      <PdfDropzone/>
+      <PdfUploadForm/>
       {
         pdfData &&
-        <div className='inline-block'>
-          {/* <button disabled={loading} className='flex items-center justify-center font-semibold text-base bg-rose-600 px-5 py-2 rounded-xl hover:scale-105'> */}
-          <button disabled={loading} onClick={handleFlashCardGeneration} className='flex items-center justify-center font-semibold text-base bg-rose-600 px-5 py-2 rounded-xl hover:scale-105'>
-            <div className={`inline-block ${loading==true ?'me-2':'hidden me-2'}`}>
+        <div className="flex items-center justify-center">
+          <button
+            disabled={loading}
+            onClick={handleFlashCardGeneration}
+            className={`group relative w-96 flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-rose-600 hover:bg-rose-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-rose-500 transition-transform duration-150 ${loading ? 'cursor-not-allowed' : ''}`}
+          >
+            <div className={`inline-block ${loading ? 'me-2' : 'hidden me-2'}`}>
               <Circles
                 height="20"
                 width="20"
@@ -86,7 +90,8 @@ I don not want any string line or text.You should return in the following JSON f
             </div>
             <p>Generate FlashCard</p>
           </button>
-        </div> 
+        </div>
+
        }
       {
         cardData
