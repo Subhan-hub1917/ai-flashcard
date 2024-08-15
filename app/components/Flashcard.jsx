@@ -12,14 +12,14 @@ const Flashcard = ({data}) => {
   return (
             <div className="card" onClick={handleClick}>
             <div className={`card__inner ${isFlipped ? 'is-flipped' : ''}`}>
-                    <div className="bg-rose-600 card__face card__face--front">
+                    <div className="p-8 text-lg font-medium bg-rose-600 card__face card__face--front">
                         <h2>{data.front}</h2>
                     </div>
                     <div className="card__face card__face--back  rounded-xl">
                         <div className="bg-rose-600 card__content text-center rounded-xl">
-                            <div className="p-5 card__body text-base text-white h-full overflow-hidden  ">
+                            <div className="p-5 card__body text-base text-white h-full overflow-hidden text-center ">
                                 <h3>Answer</h3>
-                                {data.back}
+                                <p className='text-lg font-medium'>{data.back}</p>
                                 </div>
                         </div>
                     </div>

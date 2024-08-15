@@ -53,7 +53,6 @@
 
 .card__face--front h2 {
   color: #FFF;
-  font-size: 32px;
 }
 
 .card__face--back {
@@ -73,8 +72,6 @@
 }
 
 .card__body h3 {
-  color: var(--dark);
-  font-size: 24px;
   font-weight: 600;
   margin-bottom: 15px;
 }
