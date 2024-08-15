@@ -1,69 +1,84 @@
 'use client';
-import React, { useCallback, useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { useDropzone } from 'react-dropzone';
-import * as pdfjsLib from 'pdfjs-dist/webpack';
-import { ThemeContext } from '@/Context';
+import * as pdfjsLib from 'pdfjs-dist/webpack'; // Ensure you are using the webpack version
+import { ThemeContext } from '@/Context'; // Assuming Context path
 
 function PdfDropzone() {
-    const {pdfData,setPdfData}=useContext(ThemeContext);
-    const onDrop = useCallback((acceptedFiles) => {
-        acceptedFiles.forEach((file) => {
-            const reader = new FileReader();
+  const { pdfData, setPdfData } = useContext(ThemeContext);
 
-            reader.onabort = () => console.log('File reading was aborted');
-            reader.onerror = () => console.log('File reading has failed');
-            reader.onload = async () => {
-                const arrayBuffer = reader.result;
-                // Configure pdfjs-dist worker
-                pdfjsLib.GlobalWorkerOptions.workerSrc = 
-                    `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjsLib.version}/pdf.worker.min.js`;
+  const handleDrop = async (acceptedFiles) => {
+    if (acceptedFiles.length > 0) {
+      const file = acceptedFiles[0];
 
-                try {
-                    // Use pdfjs-dist to extract the content
-                    const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
-                    const page = await pdf.getPage(1);
-                    const textContent = await page.getTextContent();
-                    const text = textContent.items.map(item => item.str).join(' ');
+      if (file.type !== 'application/pdf') {
+        console.error('Only PDF files are allowed.');
+        return;
+      }
 
-                    console.log('Extracted Text:', text);
-                    setPdfData(text)
-                } catch (error) {
-                    console.error('Error parsing PDF:', error);
-                }
-            };
+      const reader = new FileReader();
 
-            reader.readAsArrayBuffer(file);
-        });
-    }, [setPdfData]);
+      reader.onload = async () => {
+        const arrayBuffer = reader.result;
 
-    const { getRootProps, getInputProps, isDragActive } = useDropzone({
-        onDrop,
-        accept: 'application/pdf', // Accept only PDF files
-        multiple: false, // Accept only one file at a time
-    });
+        // Configure pdfjs-dist worker
+        pdfjsLib.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjsLib.version}/pdf.worker.min.js`;
 
-    return (
-        <div {...getRootProps()} style={styles.dropzone}>
-            <input {...getInputProps()} />
-            {isDragActive ? (
-                <p>Drop the files here &apos;...</p>
-            ) : (
-                <p>Drag &apos;n&apos;  drop a PDF file here, or click to select one</p>
-            )}
-        </div>
-    );
+        try {
+          // Parse the PDF document
+          const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
+          const numPages = pdf.numPages;
+          let text = '';
+
+          // Extract text from each page
+          for (let i = 1; i <= numPages; i++) {
+            const page = await pdf.getPage(i);
+            const textContent = await page.getTextContent();
+            text += textContent.items.map(item => item.str).join(' ') + '\n';
+          }
+
+          setPdfData(text);
+        } catch (error) {
+          console.error('Error parsing PDF:', error);
+        }
+      };
+
+      reader.onerror = () => {
+        console.error('Error reading file:', error);
+      };
+
+      reader.readAsArrayBuffer(file);
+    }
+  };
+
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({
+    onDrop: handleDrop,
+    accept: 'application/pdf',
+    multiple: false,
+  });
+
+  return (
+    <div {...getRootProps()} style={styles.dropzone}>
+      <input {...getInputProps()} />
+      {isDragActive ? (
+        <p>Drop the files here ...</p>
+      ) : (
+        <p>Drag 'n' drop a PDF file here, or click to select one</p>
+      )}
+    </div>
+  );
 }
 
 const styles = {
-    dropzone: {
-        border: '2px dashed #007bff',
-        borderRadius: '5px',
-        padding: '20px',
-        textAlign: 'center',
-        cursor: 'pointer',
-        color: '#007bff',
-        margin: '20px',
-    },
+  dropzone: {
+    border: '2px dashed #007bff',
+    borderRadius: '5px',
+    padding: '20px',
+    textAlign: 'center',
+    cursor: 'pointer',
+    color: '#007bff',
+    margin: '20px',
+  },
 };
 
 export default PdfDropzone;
