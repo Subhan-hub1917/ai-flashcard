@@ -60,6 +60,7 @@ I don not want any string line or text.You should return in the following JSON f
       console.log(cardData.flashcards)
 
       setLoading(false);
+      // setLoading(false)
     } 
     catch (error) {
       setLoading(false);
@@ -78,7 +79,7 @@ I don not want any string line or text.You should return in the following JSON f
           <button
             disabled={loading}
             onClick={handleFlashCardGeneration}
-            className={`group relative w-96 flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-rose-600 hover:bg-rose-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-rose-500 transition-transform duration-150 ${loading ? 'cursor-not-allowed' : ''}`}
+            className={`group relative flex items-center justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-indigo-950 bg-white hover:bg-white  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white transition-transform duration-150 ${loading ? 'cursor-not-allowed' : ''}`}
           >
             <div className={`inline-block ${loading ? 'me-2' : 'hidden me-2'}`}>
               <Circles
@@ -88,7 +89,7 @@ I don not want any string line or text.You should return in the following JSON f
                 ariaLabel="loading"
               /> 
             </div>
-            <p>Generate FlashCard</p>
+            <p className={`text-lg ${!loading ? 'me-2' : 'hidden me-2'}`}> <i className='bi bi-magic'></i> We are ready to Generate your FlashCard</p>
           </button>
         </div>
 

@@ -53,7 +53,7 @@ function PdfUploadForm() {
     } catch (err) {
         setBuffering(false)
       console.error('Error submitting form:', err);
-      setError('Error submitting form');
+      alert('Error submitting form');
     }
   };
 

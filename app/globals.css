@@ -51,9 +51,6 @@
   justify-content: center;
 }
 
-.card__face--front h2 {
-  color: #FFF;
-}
 
 .card__face--back {
   background-color: var(--light);

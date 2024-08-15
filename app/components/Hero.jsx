@@ -35,8 +35,8 @@ const Hero = () => {
             <div className='space-y-3'>
                 <div className=''>-------------------links-------------------</div>
                 <div className='flex items-center justify-center space-x-5 font-medium '>
-                    <Link href='https://www.linkedin.com/in/subhan-qamar-965946282/'><button className='hover:scale-105 bg-slate-500 px-5 lg:px-10 py-2 rounded-xl'><i className='text-sky-700 bi bi-linkedin me-2'></i>LinkedIn</button></Link>
-                    <Link href='https://github.com/Subhan-hub1917/'><button className='hover:scale-105 bg-slate-500 px-5 lg:px-10 py-2 rounded-xl'><i className='text-black bi bi-github me-2'></i>Github</button></Link>
+                    <Link href='https://www.linkedin.com/in/subhan-qamar-965946282/'><button className='hover:scale-105 text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 px-5 lg:px-10 py-2 rounded-xl'><i className='bi bi-linkedin me-2'></i>LinkedIn</button></Link>
+                    <Link href='https://github.com/Subhan-hub1917/'><button className='hover:scale-105 text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 px-5 lg:px-10 py-2 rounded-xl'><i className=' bi bi-github me-2'></i>Github</button></Link>
 
                 </div>
             </div>
