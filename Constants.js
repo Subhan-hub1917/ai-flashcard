@@ -1,5 +1,16 @@
 export const navItems=[
-    'Home','Generators','Features',
+    {
+        name:'Home',
+        link:'/'
+    },
+    {
+        name:'Generators',
+        link:'/GenerateFlashCard'
+    },
+    {
+        name:'Features',
+        link:'/'
+    },
 ]
 export const freeSubscription=[
     '10 Uploads / month',

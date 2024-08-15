@@ -6,7 +6,9 @@ export const ThemeContext = createContext({})
  
 export default function ThemeProvider({ children }) {
     const [authenticated, setAuthenticated] = useState(false)
-  return <ThemeContext.Provider value={{authenticated, setAuthenticated}}>
+    const [pdfData,setPdfData]=useState(null)
+
+  return <ThemeContext.Provider value={{authenticated, setAuthenticated,pdfData,setPdfData}}>
     {children}
     </ThemeContext.Provider>
 }

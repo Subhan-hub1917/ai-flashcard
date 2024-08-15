@@ -2,6 +2,7 @@
 import { navItems } from '@/Constants'
 import { ThemeContext } from '@/Context'
 import { SignInButton, SignUpButton, UserButton, useUser } from '@clerk/nextjs'
+import Link from 'next/link';
 
 import React, { useContext, useEffect, useState } from 'react'
 
@@ -28,7 +29,7 @@ const Navbar = () => {
             <div className='hidden lg:flex items-center justify-center space-x-3'>
                 {
                     navItems.map((nav)=>(
-                        <button className='' key={nav}>{nav}</button>
+                        <Link href={nav.link}><button className='' key={nav}>{nav.name}</button></Link>
                     ))
                 }
             </div>

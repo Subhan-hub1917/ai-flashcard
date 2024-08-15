@@ -6,6 +6,7 @@ import React, { useContext, useEffect } from 'react'
 const Hero = () => {
     
     const {authenticated, setAuthenticated}=useContext(ThemeContext);
+    
     return (
     <section className='relative block w-screen lg:flex items-center justify-between text-lg py-20 select-none px-5 lg:px-20 space-y-10 lg:space-y-0 '>
         <div className='z-10 space-y-7  w-full lg:w-1/2 text-center lg:text-start'>
@@ -20,26 +21,28 @@ const Hero = () => {
                 <SignUpButton  mode='modal' forceRedirectUrl='/'>
                     <button className='hover:scale-105 font-bold text-sm lg:text-lg px-14 py-2 rounded-xl bg-rose-600'><i className='bi bi-cloud me-2'></i>Click here to upload Data</button>
                 </SignUpButton>
-            }{
+            }
+            {
                 <SignedIn>
                     <Link href='/GenerateFlashCard'>
                         <button className='hover:scale-105 font-bold text-sm lg:text-lg px-14 py-2 rounded-xl bg-rose-600'><i className='bi bi-cloud me-2'></i>Click here to upload Data</button>
                     </Link>
-                </SignedIn>    
+                </SignedIn>
+                  
             }
-                <h1 className='text-sm font-extralight'>Support Data:Text</h1>
+                <h1 className='text-sm font-medium flex items-center justify-center'>Support Data : <i className='ms-2 text-2xl bi bi-filetype-pdf'></i></h1>
             </div>
             <div className='space-y-3'>
                 <div className=''>-------------------links-------------------</div>
                 <div className='flex items-center justify-center space-x-5 font-medium '>
-                    <button className='hover:scale-105 bg-slate-500 px-5 lg:px-10 py-2 rounded-xl'><i className='bi bi-youtube me-2'></i>Youtube</button>
-                    <button className='hover:scale-105 bg-slate-500 px-5 lg:px-10 py-2 rounded-xl'><i className='bi bi-github me-2'></i>Github</button>
+                    <Link href='https://www.linkedin.com/in/subhan-qamar-965946282/'><button className='hover:scale-105 bg-slate-500 px-5 lg:px-10 py-2 rounded-xl'><i className='text-sky-700 bi bi-linkedin me-2'></i>LinkedIn</button></Link>
+                    <Link href='https://github.com/Subhan-hub1917/'><button className='hover:scale-105 bg-slate-500 px-5 lg:px-10 py-2 rounded-xl'><i className='text-black bi bi-github me-2'></i>Github</button></Link>
 
                 </div>
             </div>
         </div>
-        <div className='z-0 opacity-[0.1] absolute w-80 h-80 rounded-full bottom-0 left-8 bg-gradient-to-br from-white to-rose-600'></div>
-        <div className='z-0 opacity-[0.1] absolute w-80 h-80 rounded-full top-0 lg:top-0 lg:bottom-20 right-12 bg-gradient-to-br from-white to-rose-600'></div>
+        <div className='z--1 opacity-[0.1] absolute w-80 h-80 rounded-full bottom-0 left-8 bg-gradient-to-br from-white to-rose-600'></div>
+        <div className='z--1 opacity-[0.1] absolute w-80 h-80 rounded-full top-0 lg:top-0 lg:bottom-20 right-12 bg-gradient-to-br from-white to-rose-600'></div>
     </section>
   )
 }
