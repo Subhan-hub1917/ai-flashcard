@@ -21,51 +21,51 @@ I don't want any string line or text.You should return in the following JSON for
     }
   ]
 }`;
-  const handleFlashCardGeneration = async () => {
-    try {
-      setLoading(true);
-      const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
-        method: "POST",
-        headers: {
-          "Authorization": `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`,
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-          "model":"meta-llama/llama-3.1-8b-instruct:free",
-          // "model": "meta-llama/llama-3.1-405b",
-          "messages": [
-            { "role": "system", "content": systemPrompt },
-            {"role": "user", "content": `${JSON.stringify(pdfData)}`},
-          ],
-          response_format: { type: 'json_object' },
-        })
-      });
-      if (!response.ok) {
-        const errorText = await response.text(); // Get error details
-        setLoading(false);
-        throw new Error(`Network response was not ok: ${errorText}`);
-      }
-      const data = await response.json();
-      console.log(data)
-      const content = data.choices[0].message.content;
-      console.log(content)
+  // const handleFlashCardGeneration = async () => {
+  //   try {
+  //     setLoading(true);
+  //     const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
+  //       method: "POST",
+  //       headers: {
+  //         "Authorization": `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`,
+  //         "Content-Type": "application/json"
+  //       },
+  //       body: JSON.stringify({
+  //         "model":"meta-llama/llama-3.1-8b-instruct:free",
+  //         // "model": "meta-llama/llama-3.1-405b",
+  //         "messages": [
+  //           { "role": "system", "content": systemPrompt },
+  //           {"role": "user", "content": `${JSON.stringify(pdfData)}`},
+  //         ],
+  //         response_format: { type: 'json_object' },
+  //       })
+  //     });
+  //     if (!response.ok) {
+  //       const errorText = await response.text(); // Get error details
+  //       setLoading(false);
+  //       throw new Error(`Network response was not ok: ${errorText}`);
+  //     }
+  //     const data = await response.json();
+  //     console.log(data)
+  //     const content = data.choices[0].message.content;
+  //     console.log(content)
 
-      const jsonStartIndex = content.indexOf('{');
-      const jsonEndIndex = content.lastIndexOf('}') + 1;
-      const jsonString = content.slice(jsonStartIndex, jsonEndIndex);
+  //     const jsonStartIndex = content.indexOf('{');
+  //     const jsonEndIndex = content.lastIndexOf('}') + 1;
+  //     const jsonString = content.slice(jsonStartIndex, jsonEndIndex);
   
-      const parsedData = JSON.parse(jsonString);
-      setCardData(parsedData.flashcards);
-      console.log(cardData.flashcards)
+  //     const parsedData = JSON.parse(jsonString);
+  //     setCardData(parsedData.flashcards);
+  //     console.log(cardData.flashcards)
 
-      setLoading(false);
-    } 
-    catch (error) {
-      setLoading(false);
-      console.log(error.message)
-      // alert(`Error fetching Quiz: ${error.message}`);
-    }
-  };
+  //     setLoading(false);
+  //   } 
+  //   catch (error) {
+  //     setLoading(false);
+  //     console.log(error.message)
+  //     // alert(`Error fetching Quiz: ${error.message}`);
+  //   }
+  // };
 
   return (
     <section className='text-center text-3xl text-white'>
@@ -74,7 +74,8 @@ I don't want any string line or text.You should return in the following JSON for
       {
         pdfData &&
         <div className='inline-block'>
-          <button disabled={loading} onClick={handleFlashCardGeneration} className='flex items-center justify-center font-semibold text-base bg-rose-600 px-5 py-2 rounded-xl hover:scale-105'>
+          <button disabled={loading} className='flex items-center justify-center font-semibold text-base bg-rose-600 px-5 py-2 rounded-xl hover:scale-105'>
+          {/* <button disabled={loading} onClick={handleFlashCardGeneration} className='flex items-center justify-center font-semibold text-base bg-rose-600 px-5 py-2 rounded-xl hover:scale-105'> */}
             <div className={`inline-block ${loading==true ?'me-2':'hidden me-2'}`}>
               <Circles
                 height="20"
