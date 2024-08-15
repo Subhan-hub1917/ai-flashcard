@@ -12,7 +12,7 @@ const Page = () => {
   const systemPrompt = `
 You are a flashcard creator, you take in text and create multiple flashcards from it. Make sure to create exactly 5 flashcards.
 Both front and back should be one sentence long.
-I don't want any string line or text.You should return in the following JSON format only:
+I don not want any string line or text.You should return in the following JSON format only:
 {
   "flashcards": [
     {
@@ -70,7 +70,7 @@ I don't want any string line or text.You should return in the following JSON for
   return (
     <section className='text-center text-3xl text-white'>
       <h1 className='text-5xl font-black'>Your Flash Cards</h1>
-      <PdfDropzone/>
+      {/* <PdfDropzone/> */}
       {
         pdfData &&
         <div className='inline-block'>
@@ -94,11 +94,11 @@ I don't want any string line or text.You should return in the following JSON for
           <>
           <h1 className='mt-10'>Your Flash Cards</h1>
           <section className='flex  flex-wrap items-center justify-center text-center'>
-            {
+            {/* {
               cardData.map((data)=>(
                 <Flashcard data={data} key={data.front} />
               ))
-            }
+            } */}
           </section>
           </>
 
