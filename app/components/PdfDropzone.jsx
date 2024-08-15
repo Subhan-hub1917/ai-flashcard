@@ -61,10 +61,11 @@ function PdfDropzone() {
     <div {...getRootProps()} style={styles.dropzone}>
       <input {...getInputProps()} />
       {isDragActive ? (
-        <p>Drop the files here ...</p>
+          <p>Drop the files here &apos;...</p>
       ) : (
-        <p>Drag 'n' drop a PDF file here, or click to select one</p>
-      )}
+          <p>Drag &apos;n&apos; drop a PDF file here, or click to select one</p>
+        )}
+
     </div>
   );
 }
