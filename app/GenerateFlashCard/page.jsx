@@ -13,15 +13,16 @@ const Page = () => {
 You are a flashcard creator, you take in text and create multiple flashcards from it. Make sure to create exactly 5 flashcards.
 Both front and back should be one sentence long.
 I don't want any string line or text.You should return in the following JSON format only:
+
 {
-  "flashcards":[
+  "flashcards": [
     {
       "front": "Front of the card",
       "back": "Back of the card"
     }
   ]
 }
-`
+`;
   const handleFlashCardGeneration = async () => {
     try {
       setLoading(true);
@@ -74,7 +75,7 @@ I don't want any string line or text.You should return in the following JSON for
   return (
     <section className='text-center text-3xl text-white'>
       <h1 className='text-5xl font-black'>Your Flash Cards</h1>
-      {/* <PdfDropzone/> */}
+      <PdfDropzone/>
       {
         pdfData &&
         <div className='inline-block'>
