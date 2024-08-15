@@ -1,7 +1,7 @@
 'use client';
 import React, { useContext } from 'react';
 import { useDropzone } from 'react-dropzone';
-import * as pdfjsLib from 'pdfjs-dist/webpack'; // Ensure you are using the webpack version
+import * as pdfjsLib from 'pdfjs-dist/webpack.mjs'; // Ensure you are using the webpack version
 import { ThemeContext } from '@/Context'; // Assuming Context path
 
 function PdfDropzone() {
@@ -38,7 +38,9 @@ function PdfDropzone() {
           }
 
           setPdfData(text);
-        } catch (error) {
+          console.log(pdfData)
+        } 
+        catch (error) {
           console.error('Error parsing PDF:', error);
         }
       };
@@ -61,12 +63,13 @@ function PdfDropzone() {
     <div {...getRootProps()} style={styles.dropzone}>
       <input {...getInputProps()} />
       {isDragActive ? (
-          <p>Drop the files here &apos;...</p>
-      ) : (
-          <p>Drag &apos;n&apos; drop a PDF file here, or click to select one</p>
-        )}
+      <p>Drop the files here &apos;...</p>
+  ) : (
+      <p>Drag &apos;n&apos; drop a PDF file here, or click to select one</p>
+)}
 
     </div>
+
   );
 }
 
