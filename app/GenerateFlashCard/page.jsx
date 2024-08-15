@@ -13,7 +13,6 @@ const Page = () => {
 You are a flashcard creator, you take in text and create multiple flashcards from it. Make sure to create exactly 5 flashcards.
 Both front and back should be one sentence long.
 I don't want any string line or text.You should return in the following JSON format only:
-
 {
   "flashcards": [
     {
@@ -21,12 +20,10 @@ I don't want any string line or text.You should return in the following JSON for
       "back": "Back of the card"
     }
   ]
-}
-`;
+}`;
   const handleFlashCardGeneration = async () => {
     try {
       setLoading(true);
-
       const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
         method: "POST",
         headers: {
@@ -37,20 +34,17 @@ I don't want any string line or text.You should return in the following JSON for
           "model":"meta-llama/llama-3.1-8b-instruct:free",
           // "model": "meta-llama/llama-3.1-405b",
           "messages": [
-            { "role": "system", "content": systemPrompt  },
-            {"role": "user", "content": `${JSON.stringify(pdfData)}.`},
+            { "role": "system", "content": systemPrompt },
+            {"role": "user", "content": `${JSON.stringify(pdfData)}`},
           ],
           response_format: { type: 'json_object' },
         })
       });
-
       if (!response.ok) {
         const errorText = await response.text(); // Get error details
         setLoading(false);
         throw new Error(`Network response was not ok: ${errorText}`);
       }
-
-
       const data = await response.json();
       console.log(data)
       const content = data.choices[0].message.content;
@@ -65,7 +59,8 @@ I don't want any string line or text.You should return in the following JSON for
       console.log(cardData.flashcards)
 
       setLoading(false);
-    } catch (error) {
+    } 
+    catch (error) {
       setLoading(false);
       console.log(error.message)
       // alert(`Error fetching Quiz: ${error.message}`);
