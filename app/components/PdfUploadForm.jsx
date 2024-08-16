@@ -39,8 +39,8 @@ function PdfUploadForm() {
       });
 
       const result = await res.json();
-
       if (res.ok) {
+        console.log('resoonse is OK')
         setResponse(result.text);
         setPdfData(result.text);
         setError(null);
