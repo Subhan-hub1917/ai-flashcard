@@ -33,8 +33,11 @@ function PdfUploadForm() {
     formData.append('pdfFile', file);
 
     try {
-      const res = await fetch('/api/pdf-parser', {
+      const res = await fetch(process.env.NEXT_PUBLIC_PDF_ROUTE, {
         method: 'POST',
+        headers: {
+          'Accept': 'application/json',         
+        },
         body: formData,
       });
 
