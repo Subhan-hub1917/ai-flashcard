@@ -10,8 +10,10 @@ const Page = () => {
   const {pdfData,setPdfData}=useContext(ThemeContext);
   const [cardData,setCardData]=useState(null) 
   const [loading,setLoading]=useState(false) 
+  
+  
   const systemPrompt = `
-You are a flashcard creator, you take in text and create multiple flashcards from it. Make sure to create exactly 5 flashcards.
+You are a flashcard creator, you take in text and create multiple flashcards from it. Make sure to create exactly 3 flashcards.
 Both front and back should be one sentence long.front contains a question and back contains answer of that question
 I don not want any string line or text.You should return in the following JSON format only:
 {
@@ -105,6 +107,7 @@ I don not want any string line or text.You should return in the following JSON f
                 <Flashcard data={data} key={data.front} />
               ))
             }
+
           </section>
           </>
 
