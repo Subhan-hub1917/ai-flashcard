@@ -1,10 +1,10 @@
 'use client'
 import React, { useContext, useState } from 'react'
 import Flashcard from '../components/Flashcard'
-import PdfDropzone from '../components/PdfDropzone'
 import { Circles } from 'react-loader-spinner'
 import { ThemeContext } from '@/Context'
 import PdfUploadForm from '../components/PdfUploadForm'
+import TextInput from '../components/TextInput'
 
 const Page = () => {
   const {pdfData,setPdfData}=useContext(ThemeContext);
@@ -12,7 +12,7 @@ const Page = () => {
   const [loading,setLoading]=useState(false) 
   const systemPrompt = `
 You are a flashcard creator, you take in text and create multiple flashcards from it. Make sure to create exactly 5 flashcards.
-Both front and back should be one sentence long.
+Both front and back should be one sentence long.front contains a question and back contains answer of that question
 I don not want any string line or text.You should return in the following JSON format only:
 {
   "flashcards": [
@@ -71,7 +71,8 @@ I don not want any string line or text.You should return in the following JSON f
   return (
     <section className='text-center text-3xl text-white'>
       <h1 className='text-5xl font-black'>Your Flash Cards</h1>
-      <PdfUploadForm/>
+      {/* <PdfUploadForm/> */}
+      <TextInput/>
       {
         pdfData &&
         <div className="flex items-center justify-center">
@@ -80,11 +81,11 @@ I don not want any string line or text.You should return in the following JSON f
             onClick={handleFlashCardGeneration}
             className={`group relative flex items-center justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-indigo-950 bg-white hover:bg-white  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white transition-transform duration-150 ${loading ? 'cursor-not-allowed' : ''}`}
           >
-            <div className={`inline-block ${loading ? 'me-2' : 'hidden me-2'}`}>
+            <div className={`inline-block text-center ${loading ? 'me-2' : 'hidden me-2'}`}>
               <Circles
                 height="20"
                 width="20"
-                color="#dddddd"
+                color="#ddddd"
                 ariaLabel="loading"
               /> 
             </div>
