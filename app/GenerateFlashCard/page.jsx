@@ -65,7 +65,6 @@ I don not want any string line or text.You should return in the following JSON f
     catch (error) {
       setLoading(false);
       console.log(error.message)
-      alert(`Error fetching Quiz: ${error.message}`);
     }
   };
 
@@ -85,7 +84,7 @@ I don not want any string line or text.You should return in the following JSON f
               <Circles
                 height="20"
                 width="20"
-                color="#ffffff"
+                color="#dddddd"
                 ariaLabel="loading"
               /> 
             </div>
