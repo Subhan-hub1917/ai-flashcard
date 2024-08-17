@@ -7,14 +7,14 @@ const TextInput = () => {
   const { pdfData, setPdfData } = useContext(ThemeContext);
   return (
     <section className="flex items-center justify-center">
-    <div className=" p-8 rounded-lg shadow-lg w-full max-w-md">
-        <h2 className="text-2xl font-semibold mb-6 ">Enter Topic Name</h2>
+    <div className=" p-8 rounded-lg w-full max-w-md">
+        {/* <h2 className="text-2xl font-semibold mb-6 ">Enter Topic Name</h2> */}
         <form className="space-y-4">
             <div>
                 {/* <label for="topic-name" className="block text-sm font-medium mb-2">Topic Name</label> */}
-                <input type="text" id="topic-name" name="topic-name" placeholder=""
+                <textarea type="text" id="topic-name" name="topic-name" placeholder="Enter Topic or Paragraph"
                     value={pdfData} onChange={(e)=>setPdfData(e.target.value)}
-                    className="text-indigo-950 w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                    className="text-indigo-950 font-medium text-sm md:text-lg w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                     required/>
             </div>
             {/* <button type="submit"

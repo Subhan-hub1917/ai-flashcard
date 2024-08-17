@@ -11,15 +11,15 @@ const Flashcard = ({data}) => {
 
   return (
             <div className="card" onClick={handleClick}>
-            <div className={`card__inner ${isFlipped ? 'is-flipped' : ''}`}>
-                    <div className="p-8 text-lg font-medium  bg-slate-400 text-indigo-950 card__face card__face--front">
+            <div className={`card__inner  bg-gradient-to-br from-white to-orange-300 rounded-xl ${isFlipped ? 'is-flipped' : ''}`}>
+                    <div className="p-8 text-xl  font-bold  text-indigo-950 card__face card__face--front">
                         <h2 className='text-indigo-950'>{data.front}</h2>
                     </div>
                     <div className="card__face card__face--back  rounded-xl">
-                        <div className="bg-slate-400 card__content text-center rounded-xl">
-                            <div className="p-5 card__body text-base text-indigo-950 h-full overflow-hidden text-center ">
-                                <h3>Answer</h3>
-                                <p className='text-lg font-medium'>{data.back}</p>
+                        <div className="bg-gradient-to-b from-white to-orange-300 card__content text-center rounded-xl">
+                            <div className="p-5 card__body text-indigo-950 h-full overflow-hidden text-center ">
+                                <h3 className='text-xl font-bold py-2'>Answer</h3>
+                                <p className='text-lg font-semibold'>{data.back}</p>
                                 </div>
                         </div>
                     </div>

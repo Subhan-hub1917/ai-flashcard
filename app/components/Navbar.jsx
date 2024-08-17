@@ -24,7 +24,7 @@ const Navbar = () => {
     <nav className='relative'>   
         <div className='flex items-center overflow-hidden justify-between space-x-5 lg:space-x-0 py-5 px-5 lg:px-20 text-lg font-medium text-white bg-inherit'>
             <div>
-                <h1 className='text-4xl'>Limbiks</h1>
+                <h1 className='text-4xl text-orange-500 font-bold uppercase italic tracking-wide'>FlashAI</h1>
             </div>
             <div className='hidden lg:flex items-center justify-center space-x-3'>
                 {

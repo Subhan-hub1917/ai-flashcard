@@ -68,10 +68,10 @@
   overflow: auto; /* Allow scrolling inside the body */
 }
 
-.card__body h3 {
+/* .card__body h3 {
   font-weight: 600;
   margin-bottom: 15px;
-}
+} */
 
 .card__body p {
   color: var(--dark);

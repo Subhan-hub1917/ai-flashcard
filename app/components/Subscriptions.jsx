@@ -18,7 +18,7 @@ const Subscriptions = () => {
                     }
                 </ul>
             </div>
-            <Link href="https://buy.stripe.com/test_6oE3dpgfKeA48Cs8ww" className='mt-3 hover:scale-105 bg-rose-600 text-center w-full py-3 rounded-xl font-medium'><button className='w-full mt-8 hover:scale-105 bg-rose-600 text-center py-3 rounded-xl font-medium'>2$ Subscription</button></Link>
+            <Link href="https://buy.stripe.com/test_6oE3dpgfKeA48Cs8ww" className='mt-3 hover:scale-105 bg-orange-500 text-center w-full py-3 rounded-xl font-medium'><button className='w-full mt-8 hover:scale-105 bg-orange-500 text-center py-3 rounded-xl font-medium'>2$ Subscription</button></Link>
         </div>
     </section>
   )

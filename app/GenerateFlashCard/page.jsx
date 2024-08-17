@@ -72,7 +72,7 @@ I don not want any string line or text.You should return in the following JSON f
 
   return (
     <section className='text-center text-3xl text-white'>
-      <h1 className='text-5xl font-black'>Your Flash Cards</h1>
+      <h1 className='text-3xl md:text-5xl font-black'>Flash Cards Generator</h1>
       {/* <PdfUploadForm/> */}
       <TextInput/>
       {
@@ -81,17 +81,17 @@ I don not want any string line or text.You should return in the following JSON f
           <button
             disabled={loading}
             onClick={handleFlashCardGeneration}
-            className={`group relative flex items-center justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-indigo-950 bg-white hover:bg-white  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white transition-transform duration-150 ${loading ? 'cursor-not-allowed' : ''}`}
+            className={`group relative flex items-center justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-indigo-950 ${loading ? 'cursor-not-allowed bg-transparent' : ' bg-white hover:bg-white  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white transition-transform duration-150'}`}
           >
             <div className={`inline-block text-center ${loading ? 'me-2' : 'hidden me-2'}`}>
               <Circles
-                height="20"
-                width="20"
-                color="#ddddd"
+                height="40"
+                width="40"
+                color="orange"
                 ariaLabel="loading"
               /> 
             </div>
-            <p className={`text-lg ${!loading ? 'me-2' : 'hidden me-2'}`}> <i className='bi bi-magic'></i> We are ready to Generate your FlashCard</p>
+            <p className={`text-sm md:text-lg ${!loading ? 'me-2' : 'hidden me-2'}`}> <i className='bi bi-magic'></i> We are ready to Generate your FlashCard</p>
           </button>
         </div>
 
@@ -100,8 +100,8 @@ I don not want any string line or text.You should return in the following JSON f
         cardData
         ?
           <>
-          <h1 className='mt-10'>Your Flash Cards</h1>
-          <section className='flex  flex-wrap items-center justify-center text-center'>
+          <h1 className='mt-10 uppercase font-bold text-xl md:text-3xl  text-orange-400'>Your Flash Cards</h1>
+          <section className='flex  flex-wrap items-center py-10 justify-center text-center'>
             {
               cardData.map((data)=>(
                 <Flashcard data={data} key={data.front} />
